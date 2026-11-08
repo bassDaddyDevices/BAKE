@@ -4,7 +4,8 @@
     python3 Tools/wiki/export_github_wiki.py BAKE_DOCS/wiki /tmp/bake-github-wiki
 
 Only the wiki is public; the other knowledge-base documents (decisions, PRD, roadmap, plans,
-reports) are not. Links to them keep their text and lose the link. Pages that are internal process
+reports) are not. Links to them keep their text and lose the link, and anything between
+`<!-- internal -->` and `<!-- /internal -->` is left out. Pages that are internal process
 (the wiki log, the old contributor contract, requirements coverage, the node catalog's design record)
 are left out; CONTRIBUTING.md
 in the repository replaces the contributor guides. The output folder's .md files are replaced; its
@@ -56,6 +57,8 @@ def main(source, out):
 
     def rewrite(path, body):
         folder = os.path.dirname(path)
+        # Anything between <!-- internal --> and <!-- /internal --> is for the knowledge base only.
+        body = re.sub(r"<!-- internal -->.*?<!-- /internal -->\n?", "", body, flags=re.S)
 
         def replace(match):
             image, text, target, title = match.groups()
