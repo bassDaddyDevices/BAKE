@@ -1,0 +1,302 @@
+{
+  "audio": [
+    "Plays an audio file into the patch: crop it, loop it, set its gain. Most chains start here.",
+    "Drop a file on the canvas to make one."
+  ],
+  "generator": [
+    "Makes noise: white, pink, brown, blue, violet, dust (sparse random clicks) and more, at a set Length and Level, mono or stereo.",
+    "Dust into a Resonator gives tuned plucks."
+  ],
+  "preview": [
+    "Renders the chain up to this point and plays it, so you can listen anywhere without baking a file.",
+    null
+  ],
+  "print": [
+    "Writes what reaches it to a WAV file: 16-bit, 24-bit or 32-bit float, optionally with a wavetable chunk for Serum or Vital, and optional Clean Up (trim silence, fades, remove DC, normalize).",
+    "Set Bit Depth to 32-bit float when the file is going back into BAKE or into a wavetable synth."
+  ],
+  "batchAudio": [
+    "Plays a folder of audio files, one file per pass of a batch. Everything after it runs once for each file.",
+    "Batch Audio → Filters → Batch Bake processes a whole folder."
+  ],
+  "largeAudio": [
+    "Cuts one long recording into slices (at transients, by musical length, or every few seconds) and plays one slice per pass.",
+    "A long jam → Large Audio Processor → Batch Bake gives a folder of one-shots."
+  ],
+  "photoBooth": [
+    "Takes a snapshot of its input at every trigger (a Clock, LFO, Logic…, or every 1/4 at its own BPM when nothing is wired). Each chunk becomes a pass of the batch.",
+    "Audio (a groove) → Photo Booth → Batch Bake gives groove-001, groove-002 and so on."
+  ],
+  "concatenate": [
+    "Joins its inputs end to end (In 1, then In 2, …), with gaps or crossfades. In a batch it also joins every pass: each file's inputs in order, then the next file's. What comes after it runs once, on the joined result.",
+    "Three Audio nodes into In 1, In 2 and In 3 make one file; after a Batch Audio, wire the file into In 1 and a Reverse of it into In 2 for each sound then its reverse."
+  ],
+  "corpusScatter": [
+    "Scatters every pass of a batch along one timeline (random, even or Euclidean timing), with pitch and pan variation. The same Seed gives the same result.",
+    "A folder of short hits with Density 20 makes a texture; Euclidean timing makes a groove."
+  ],
+  "ensembleAverager": [
+    "Averages the spectra of every pass of a batch into one sound: 200 snares in, one composite snare out. Mean, Median or Geometric; lined up by Start, Onset or Peak.",
+    "For drums, Onset alignment with FFT Size 1024–2048. For very mixed folders, Median."
+  ],
+  "combinatorialMatrix": [
+    "Layers inputs A, B and C. In a batch, every combination of the files on A, B and C becomes its own pass: 10 × 10 × 10 = 1 000 files.",
+    "Clicks on A and subs on B → Batch Bake gives click03+sub07.wav and so on."
+  ],
+  "forEachSplitter": [
+    "Sends each file of a batch down one or more of its outputs: Broadcast, Round-Robin, Odd/Even or Blocks. A Batch Bake behind an output writes only the files sent its way.",
+    null
+  ],
+  "spectralSorter": [
+    "Measures each clip (brightness, loudness, pitch or decay) and sends it to Low, Mid or High. With a Batch Bake on each output, a folder sorts itself into three.",
+    "A drum folder by Centroid separates kicks, snares and hats."
+  ],
+  "merryGoRound": [
+    "Deals each file of a batch to one output in turn: Forward, Ping-Pong, Random or a typed Pattern, Hold files at a time.",
+    "After a Large Audio Processor, Hold 4 keeps runs of consecutive slices together."
+  ],
+  "batchConform": [
+    "Stretches and repitches every file to a Target BPM and Key. It reads the tempo and key from the file name when it can (128bpm, Am), otherwise it detects them.",
+    "Formants on Preserve for vocals and solo instruments; Shift for everything else."
+  ],
+  "batchBake": [
+    "Writes one file per pass of a batch, named after the source, numbered (Kick_001), or with random words. Clean Up is optional.",
+    null
+  ],
+  "filters": [
+    "A resonant filter: low-pass, high-pass, band-pass or notch, with Drive and slopes up to 96 dB/oct, in Minimum (IIR) or Linear (FIR) phase.",
+    null
+  ],
+  "dualFilter": [
+    "Two filters, Alpha and Beta, with Spread between their cutoffs, Morph between them, and a built-in LFO.",
+    null
+  ],
+  "resonator": [
+    "A bank of tuned resonant bands that rings at a Root pitch and its partials; Inharmonicity bends them toward bells and metal. Runs on the GPU.",
+    "Dust from a Generator into a Resonator gives plucked, tuned sounds."
+  ],
+  "distortion": [
+    "Soft or hard clipping with Drive, Ceiling and Mix, oversampled to keep it clean.",
+    null
+  ],
+  "redux": [
+    "Lo-fi degradation: bit reduction, downsampling, sample-and-hold and bitwise modes.",
+    null
+  ],
+  "waveshaper": [
+    "Bends the waveform through a curve (tanh, arctan, sine, Chebyshev, asymmetric and more), with Drive and Bias.",
+    null
+  ],
+  "wavefolder": [
+    "Folds the waveform back on itself as it gets louder, for rich, buzzy harmonics: triangle or sine folds, up to 8 stages.",
+    null
+  ],
+  "derivativeDistortion": [
+    "Distorts a sound's movement rather than its peaks, by limiting how fast and how sharply the waveform can change.",
+    null
+  ],
+  "residualExplosion": [
+    "Simplifies the sound (fewer bits, or quiet samples removed) and turns up what was thrown away; Body blends the original back in. Runs on the GPU.",
+    null
+  ],
+  "subHarmonic": [
+    "Adds tones one and two octaves below the pitch it tracks, for weight under basses and kicks.",
+    null
+  ],
+  "tapeDegrade": [
+    "Wow, flutter, saturation, hiss and dropouts, like a worn tape machine.",
+    null
+  ],
+  "adaptiveClipping": [
+    "A clipper that holds peaks at its Threshold and lets go smoothly, with a hard or soft knee, look-ahead and makeup gain.",
+    null
+  ],
+  "compressor": [
+    "Compressor, expander or gate, with a sidechain input, peak or RMS detection, stereo or mid/side linking and sidechain filters.",
+    null
+  ],
+  "limiter": [
+    "A look-ahead limiter that keeps peaks under the Ceiling, oversampled to catch peaks between samples.",
+    null
+  ],
+  "phaser": [
+    "A sweeping phaser with its own LFO: Center, Width, Rate, Depth and Feedback, 2–24 stages.",
+    null
+  ],
+  "flanger": [
+    "A short modulated delay with feedback, for jet-plane sweeps.",
+    null
+  ],
+  "chorus": [
+    "Several detuned, delayed voices for width and shimmer: Detune, Spread, 2–8 voices.",
+    null
+  ],
+  "frequencyShifter": [
+    "Shifts every frequency up or down by the same number of hertz (not a pitch shift), for metallic and detuned sounds. Up and Down have their own outputs.",
+    null
+  ],
+  "delay": [
+    "Echoes with Feedback, Damping, Ping-Pong, several Taps, Pitch per Repeat and Freeze.",
+    null
+  ],
+  "convolver": [
+    "Puts a sound in the space (or texture) of another: wire an impulse response into IR, or leave IR empty to convolve the sound with itself.",
+    "Audio → Convolver ← Batch Audio (on IR) → Batch Bake convolves one sound with every file in a folder."
+  ],
+  "reverb": [
+    "A feedback-delay-network reverb: Size, Decay, Damping, Diffusion, separate low and high decay, and Freeze.",
+    null
+  ],
+  "granularCloud": [
+    "Chops the input into tiny grains and sprays them into a cloud: Grain Size, Density, Spray, pitch and stereo spread, reverse chance.",
+    null
+  ],
+  "temporalShatter": [
+    "Keeps each attack as it is and stretches what follows, by huge factors if you like, as grains or as tape.",
+    null
+  ],
+  "halfTime": [
+    "Slows the sound to half speed or less, as tape (repitched) or keeping pitch (granular). Modulate Speed for tape stops.",
+    null
+  ],
+  "beatRepeat": [
+    "Ableton-style beat repeat with its own tempo: grabs a slice and repeats it, down to buzzy 1/2048 grids, with pitch, decay and chance.",
+    null
+  ],
+  "looper": [
+    "Loops a slice of the input at each bang (or every few ms) until the next one.",
+    "A Clock on Trigger loops a fresh slice every beat."
+  ],
+  "stutter": [
+    "Micro-repeats on each bang (or every few ms): Size, Repeats, Shrink, Decay, pitch and pan drift, Reverse.",
+    null
+  ],
+  "stepFX": [
+    "A step sequencer of effects, Effectrix-style: each step is Pass, Stutter, Reverse, Tape Stop, Half Time or Gate. Click the card's cells to edit.",
+    null
+  ],
+  "stretch": [
+    "Time-stretches without changing pitch, or shifts pitch without changing length, up to 1000×.",
+    null
+  ],
+  "reverse": [
+    "Plays the sound backwards, with Mix.",
+    null
+  ],
+  "vocoder": [
+    "A channel vocoder: the modulator's spectrum shapes the carrier, with Bands, Formant Shift, Attack and Release.",
+    null
+  ],
+  "spectralResynthesis": [
+    "Rebuilds the sound from its partials (sines plus noise): tilt, pitch, stretch, crystallize. With a second input: cross-synthesis, morph, splice or swap noise.",
+    null
+  ],
+  "fractalFilter": [
+    "Carves a self-similar spectral mask (Cantor, Mandelbrot, Julia, Koch and more) into the sound. Runs on the GPU.",
+    null
+  ],
+  "otftCompressor": [
+    "Over-the-top spectral compression: every frequency bin gets its own upward and downward compressor, for extreme flattening and detail.",
+    null
+  ],
+  "singleCycle": [
+    "Generates single-cycle waveforms (Wavetable mode) or a playable oscillator, from shapes and harmonics with Warp and Morph.",
+    "Single Cycle → effects → Wavetable Factory → Bake makes a wavetable for Serum or Vital."
+  ],
+  "wavetableFactory": [
+    "Builds a wavetable from the cycles fed into it; Bake writes it in a form Serum and Vital read.",
+    "Set the Bake to 32-bit float."
+  ],
+  "mixer": [
+    "Mixes any number of inputs (they grow as you wire, up to 16) with a master Gain.",
+    null
+  ],
+  "gainVCA": [
+    "Gain in dB; wire a control into Amount for tremolo (VCA) or ring modulation.",
+    null
+  ],
+  "utility": [
+    "The handy box: gain, balance, polarity, mono, fades, DC removal, normalize, and trimming or padding either end.",
+    null
+  ],
+  "stepSwitch": [
+    "Sends the audio to the next of its 2–8 outputs at each bang on Advance, with short crossfades: forward, ping-pong, random or a typed pattern.",
+    null
+  ],
+  "channelSplitter": [
+    "Splits a multichannel signal into mono outputs, one per channel.",
+    null
+  ],
+  "channelMerger": [
+    "Merges mono inputs into one multichannel signal.",
+    null
+  ],
+  "frequencySplitter": [
+    "Splits the sound into 2–5 frequency bands, each on its own output.",
+    "Process the lows and highs differently, then bring them back with a Mixer."
+  ],
+  "midSideEncoder": [
+    "Turns left and right into Mid (the centre) and Side (the width).",
+    null
+  ],
+  "midSideDecoder": [
+    "Turns Mid and Side back into left and right.",
+    null
+  ],
+  "feedback": [
+    "Feeds a chain's output back into its input, with Delay, Drive and always-on saturation, so loops stay safe.",
+    "Select a chain and use Make Feedback Group (⌥⌘G)."
+  ],
+  "lfo": [
+    "A low-frequency oscillator: sine, triangle, saw, square or sample-and-hold, free-running or synced to a Clock.",
+    null
+  ],
+  "random": [
+    "Random values over time (stepped, smooth, or a random walk), uniform, Gaussian or coin-flip, at a Rate or on each trigger.",
+    null
+  ],
+  "sampleAndHold": [
+    "Samples a signal at each trigger (or at a Rate) and holds it, with glide.",
+    null
+  ],
+  "macro": [
+    "One dial that drives many controls at once, each with its own depth, curve and range. Inside a Custom Node it becomes a control on the card.",
+    null
+  ],
+  "envelope": [
+    "An ADSR envelope fired by bangs (or every few ms): one-shot, gate or classic.",
+    null
+  ],
+  "envelopeFollower": [
+    "Turns the loudness of an audio signal into a control signal, with Attack and Release.",
+    null
+  ],
+  "pitchFollower": [
+    "Tracks the pitch of an audio signal as a control, with a Confidence output that works as a gate.",
+    null
+  ],
+  "transientDetector": [
+    "Sends a bang at every hit in an audio signal, plus how strong it was: energy, spectral flux or high-frequency detection.",
+    null
+  ],
+  "featureFollower": [
+    "Follows a spectral feature (brightness, noisiness, flux, rolloff, bandwidth or zero crossings) as a control signal.",
+    null
+  ],
+  "clock": [
+    "Sends bangs at a BPM and division (1/1–1/64, dotted, triplet). It drives LFOs, envelopes, Switch, Stutter, Photo Booth and more.",
+    null
+  ],
+  "math": [
+    "Combines two controls: add, subtract, multiply, divide, absolute, invert or modulo, with Scale and clamping.",
+    null
+  ],
+  "logic": [
+    "Turns controls into 0 or 1: threshold, AND, OR, XOR or NOT, with hysteresis and hold.",
+    null
+  ],
+  "quantizer": [
+    "Snaps a control to the notes of a scale (chromatic, major, minor, pentatonic) from a Root, with glide.",
+    null
+  ]
+}

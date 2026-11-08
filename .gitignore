@@ -1,0 +1,16 @@
+.DS_Store
+xcuserdata/
+*.xcuserstate
+DerivedData/
+.build/
+.swiftpm/
+
+/build/
+
+# Internal docs live in the knowledge base, not in git.
+/BAKE_DOCS/
+/Claude outputs/
+
+# Internal agent skills and review reports stay local.
+/.agents/
+/reports/

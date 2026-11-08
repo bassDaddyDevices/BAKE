@@ -1,0 +1,605 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 110;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		72926DDE307A0E62009892FD /* BakeCanvas in Frameworks */ = {isa = PBXBuildFile; productRef = 72926DDD307A0E62009892FD /* BakeCanvas */; };
+		72926DE4307A3DE7009892FD /* BakeSession in Frameworks */ = {isa = PBXBuildFile; productRef = 72926DE3307A3DE7009892FD /* BakeSession */; };
+		72F671D73078E92300CBA475 /* BakeGraph in Frameworks */ = {isa = PBXBuildFile; productRef = 72F671D63078E92300CBA475 /* BakeGraph */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		727BC0893078BD01000B349E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 727BC0713078BD00000B349E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 727BC0783078BD00000B349E;
+			remoteInfo = BAKE;
+		};
+		727BC0933078BD01000B349E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 727BC0713078BD00000B349E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 727BC0783078BD00000B349E;
+			remoteInfo = BAKE;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		727BC0793078BD00000B349E /* BAKE.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BAKE.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		727BC0883078BD01000B349E /* BAKETests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BAKETests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		727BC0923078BD01000B349E /* BAKEUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BAKEUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		72F671C83078E86200CBA475 /* Exceptions for "BAKE" folder in "BAKE" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 727BC0783078BD00000B349E /* BAKE */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		727BC07B3078BD00000B349E /* BAKE */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				72F671C83078E86200CBA475 /* Exceptions for "BAKE" folder in "BAKE" target */,
+			);
+			path = BAKE;
+			sourceTree = "<group>";
+		};
+		727BC08B3078BD01000B349E /* BAKETests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = BAKETests;
+			sourceTree = "<group>";
+		};
+		727BC0953078BD01000B349E /* BAKEUITests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = BAKEUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		727BC0763078BD00000B349E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+				72F671D73078E92300CBA475 /* BakeGraph in Frameworks */,
+				72926DE4307A3DE7009892FD /* BakeSession in Frameworks */,
+				72926DDE307A0E62009892FD /* BakeCanvas in Frameworks */,
+			);
+		};
+		727BC0853078BD01000B349E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+		727BC08F3078BD01000B349E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		727BC0703078BD00000B349E = {
+			isa = PBXGroup;
+			children = (
+				727BC07B3078BD00000B349E /* BAKE */,
+				727BC08B3078BD01000B349E /* BAKETests */,
+				727BC0953078BD01000B349E /* BAKEUITests */,
+				72F671D53078E92300CBA475 /* Frameworks */,
+				727BC07A3078BD00000B349E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		727BC07A3078BD00000B349E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				727BC0793078BD00000B349E /* BAKE.app */,
+				727BC0883078BD01000B349E /* BAKETests.xctest */,
+				727BC0923078BD01000B349E /* BAKEUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		72F671D53078E92300CBA475 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		727BC0783078BD00000B349E /* BAKE */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 727BC09A3078BD01000B349E /* Build configuration list for PBXNativeTarget "BAKE" */;
+			buildPhases = (
+				727BC0753078BD00000B349E /* Sources */,
+				727BC0763078BD00000B349E /* Frameworks */,
+				727BC0773078BD00000B349E /* Resources */,
+			);
+			buildRules = (
+			);
+			fileSystemSynchronizedGroups = (
+				727BC07B3078BD00000B349E /* BAKE */,
+			);
+			name = BAKE;
+			packageProductDependencies = (
+				72F671D63078E92300CBA475 /* BakeGraph */,
+				72926DDD307A0E62009892FD /* BakeCanvas */,
+				72926DE3307A3DE7009892FD /* BakeSession */,
+			);
+			productName = BAKE;
+			productReference = 727BC0793078BD00000B349E /* BAKE.app */;
+			productType = "com.apple.product-type.application";
+		};
+		727BC0873078BD01000B349E /* BAKETests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 727BC09D3078BD01000B349E /* Build configuration list for PBXNativeTarget "BAKETests" */;
+			buildPhases = (
+				727BC0843078BD01000B349E /* Sources */,
+				727BC0853078BD01000B349E /* Frameworks */,
+				727BC0863078BD01000B349E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				727BC08A3078BD01000B349E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				727BC08B3078BD01000B349E /* BAKETests */,
+			);
+			name = BAKETests;
+			productName = BAKETests;
+			productReference = 727BC0883078BD01000B349E /* BAKETests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		727BC0913078BD01000B349E /* BAKEUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 727BC0A03078BD01000B349E /* Build configuration list for PBXNativeTarget "BAKEUITests" */;
+			buildPhases = (
+				727BC08E3078BD01000B349E /* Sources */,
+				727BC08F3078BD01000B349E /* Frameworks */,
+				727BC0903078BD01000B349E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				727BC0943078BD01000B349E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				727BC0953078BD01000B349E /* BAKEUITests */,
+			);
+			name = BAKEUITests;
+			productName = BAKEUITests;
+			productReference = 727BC0923078BD01000B349E /* BAKEUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		727BC0713078BD00000B349E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2700;
+				LastUpgradeCheck = 2700;
+				TargetAttributes = {
+					727BC0783078BD00000B349E = {
+						CreatedOnToolsVersion = 27.0;
+					};
+					727BC0873078BD01000B349E = {
+						CreatedOnToolsVersion = 27.0;
+						TestTargetID = 727BC0783078BD00000B349E;
+					};
+					727BC0913078BD01000B349E = {
+						CreatedOnToolsVersion = 27.0;
+						TestTargetID = 727BC0783078BD00000B349E;
+					};
+				};
+			};
+			buildConfigurationList = 727BC0743078BD00000B349E /* Build configuration list for PBXProject "BAKE" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 727BC0703078BD00000B349E;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 727BC07A3078BD00000B349E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				727BC0783078BD00000B349E /* BAKE */,
+				727BC0873078BD01000B349E /* BAKETests */,
+				727BC0913078BD01000B349E /* BAKEUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		727BC0773078BD00000B349E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		727BC0863078BD01000B349E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+		727BC0903078BD01000B349E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			files = (
+			);
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		727BC0753078BD00000B349E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+		727BC0843078BD01000B349E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+		727BC08E3078BD01000B349E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+			);
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		727BC08A3078BD01000B349E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 727BC0783078BD00000B349E /* BAKE */;
+			targetProxy = 727BC0893078BD01000B349E /* PBXContainerItemProxy */;
+		};
+		727BC0943078BD01000B349E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 727BC0783078BD00000B349E /* BAKE */;
+			targetProxy = 727BC0933078BD01000B349E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		727BC0983078BD01000B349E /* Debug configuration for PBXProject "BAKE" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = Z427P979RG;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.6;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		727BC0993078BD01000B349E /* Release configuration for PBXProject "BAKE" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = Z427P979RG;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.6;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+			};
+			name = Release;
+		};
+		727BC09B3078BD01000B349E /* Debug configuration for PBXNativeTarget "BAKE" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = Bake;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z427P979RG;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readwrite;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BAKE/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bassdaddydevices.BAKE;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_INTEROP_MODE = objcxx;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		727BC09C3078BD01000B349E /* Release configuration for PBXNativeTarget "BAKE" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = Bake;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z427P979RG;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SELECTED_FILES = readwrite;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = BAKE/Info.plist;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bassdaddydevices.BAKE;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_INTEROP_MODE = objcxx;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		727BC09E3078BD01000B349E /* Debug configuration for PBXNativeTarget "BAKETests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z427P979RG;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bassdaddydevices.BAKETests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_INTEROP_MODE = objcxx;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BAKE.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BAKE";
+			};
+			name = Debug;
+		};
+		727BC09F3078BD01000B349E /* Release configuration for PBXNativeTarget "BAKETests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z427P979RG;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.6;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bassdaddydevices.BAKETests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_OBJC_INTEROP_MODE = objcxx;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/BAKE.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/BAKE";
+			};
+			name = Release;
+		};
+		727BC0A13078BD01000B349E /* Debug configuration for PBXNativeTarget "BAKEUITests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z427P979RG;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bassdaddydevices.BAKEUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = BAKE;
+			};
+			name = Debug;
+		};
+		727BC0A23078BD01000B349E /* Release configuration for PBXNativeTarget "BAKEUITests" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z427P979RG;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bassdaddydevices.BAKEUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = BAKE;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		727BC0743078BD00000B349E /* Build configuration list for PBXProject "BAKE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				727BC0983078BD01000B349E /* Debug configuration for PBXProject "BAKE" */,
+				727BC0993078BD01000B349E /* Release configuration for PBXProject "BAKE" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		727BC09A3078BD01000B349E /* Build configuration list for PBXNativeTarget "BAKE" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				727BC09B3078BD01000B349E /* Debug configuration for PBXNativeTarget "BAKE" */,
+				727BC09C3078BD01000B349E /* Release configuration for PBXNativeTarget "BAKE" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		727BC09D3078BD01000B349E /* Build configuration list for PBXNativeTarget "BAKETests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				727BC09E3078BD01000B349E /* Debug configuration for PBXNativeTarget "BAKETests" */,
+				727BC09F3078BD01000B349E /* Release configuration for PBXNativeTarget "BAKETests" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		727BC0A03078BD01000B349E /* Build configuration list for PBXNativeTarget "BAKEUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				727BC0A13078BD01000B349E /* Debug configuration for PBXNativeTarget "BAKEUITests" */,
+				727BC0A23078BD01000B349E /* Release configuration for PBXNativeTarget "BAKEUITests" */,
+			);
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		72926DDD307A0E62009892FD /* BakeCanvas */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BakeCanvas;
+		};
+		72926DE3307A3DE7009892FD /* BakeSession */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BakeSession;
+		};
+		72F671D63078E92300CBA475 /* BakeGraph */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BakeGraph;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 727BC0713078BD00000B349E /* Project object */;
+	validationLevel = 1;
+}

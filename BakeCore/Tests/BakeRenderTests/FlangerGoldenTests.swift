@@ -1,0 +1,96 @@
+import Foundation
+import Testing
+@testable import BakeGraph
+@testable import BakeRender
+
+/// Pins the exact output of the shipped Flanger, so through-zero reading, dispersion and the longer delay
+/// ceiling can never change what a saved patch already sounds like (D-019).
+///
+/// Same recording rule as `ReduxGoldenTests`: set `expected` to `[:]`, run once, paste the literal
+/// the failure prints. Hashes come from the Mac that records them (libm differs across platforms).
+/// `legacySettings` is applied to every case; it names the old behaviour of any setting added later.
+@Suite(.serialized)
+struct FlangerGoldenTests {
+    private static let legacySettings: [String: ParameterValue] = [
+        "readHead": .choice("causal"), "modulationRange": .choice("legacy"),
+    ]
+
+    private static let cases: [(name: String, parameters: [String: ParameterValue])] = [
+        ("default", [:]),
+        ("cubic/deep", ["delay": .number(8), "rate": .number(0.7), "depth": .number(1), "feedback": .number(0.6), "mix": .number(0.5)]),
+        ("linear/negative", [
+            "interpolation": .choice("linear"), "feedbackPolarity": .choice("negative"),
+            "delay": .number(3), "rate": .number(1.5), "depth": .number(0.9), "feedback": .number(0.85),
+        ]),
+        ("atTheOldMaximumDelay", ["delay": .number(15), "depth": .number(0.5), "rate": .number(0.4), "feedback": .number(0.5)]),
+        ("shortest", ["delay": .number(0.1), "depth": .number(1), "rate": .number(2), "feedback": .number(0.9), "mix": .number(1)]),
+        ("dampedWet", ["hfDamping": .number(0.8), "mix": .number(1), "feedback": .number(0.7), "delay": .number(6)]),
+        ("noFeedbackHalfMix", ["feedback": .number(0), "mix": .number(0.5), "depth": .number(1), "delay": .number(10)]),
+    ]
+
+    private static let expected: [String: String] = [
+        "default": "940cff3746c54976",
+        "cubic/deep": "eb5b53d3c9cd7f4c",
+        "linear/negative": "18ecc7ef6534f3e1",
+        "atTheOldMaximumDelay": "3720ea722f53929f",
+        "shortest": "8a8a7d8de1eba76f",
+        "dampedWet": "9a50d1cf33fd93e5",
+        "noFeedbackHalfMix": "cecb0d9568944f42",
+    ]
+
+    private func render(_ parameters: [String: ParameterValue], _ samples: [[Float]], workers: Int? = nil, chunk: Int = 65_536) async throws -> [[Float]] {
+        await CoreCountGate.shared.acquire()
+        Parallel.overrideCoreCount(workers)
+        defer {
+            Parallel.overrideCoreCount(nil)
+            CoreCountGate.shared.releaseSoon()
+        }
+        let directory = try makeTemporaryDirectory()
+        defer { try? FileManager.default.removeItem(at: directory) }
+        let source = directory.appendingPathComponent("source.wav")
+        try TestAudio.write(samples, to: source, sampleRate: 48_000)
+        let output = directory.appendingPathComponent("out", isDirectory: true)
+        try FileManager.default.createDirectory(at: output, withIntermediateDirectories: true)
+        var graph = TestProject()
+        let audio = graph.add(.audio, asset: sourceAsset)
+        var merged = NodeCatalog.defaultParameters(for: .flanger)
+        for (id, value) in Self.legacySettings { merged[id] = value }
+        for (id, value) in parameters { merged[id] = value }
+        let node = graph.add(.flanger, merged)
+        let print = graph.add(.print, ["bitDepth": .choice("32f")])
+        graph.connect(audio, to: node)
+        graph.connect(node, to: print)
+        let urls = [sourceAsset: source]
+        let request = RenderRequest(
+            plan: try compile(graph.project, assetURLs: urls), assetURLs: urls, outputDirectory: output, chunkFrames: chunk
+        )
+        return try TestAudio.read(try #require(try await RenderEngine.render(request).outputs[print])).samples
+    }
+
+    private static func hash(_ channels: [[Float]]) -> String {
+        var value: UInt64 = 0xcbf29ce484222325
+        for channel in channels {
+            for sample in channel {
+                var bits = sample.bitPattern
+                for _ in 0..<4 {
+                    value = (value ^ UInt64(bits & 0xff)) &* 0x100000001b3
+                    bits >>= 8
+                }
+            }
+        }
+        return String(value, radix: 16)
+    }
+
+    @Test func shippedFlangerKeepsItsExactOutput() async throws {
+        let samples = TestAudio.samples(frames: 20_000, channels: 2)
+        var found: [(String, String)] = []
+        for item in Self.cases {
+            let output = try await render(item.parameters, samples)
+            #expect(output.count == 2 && output.allSatisfy { $0.count == 20_000 && $0.allSatisfy { $0.isFinite } }, "\(item.name)")
+            found.append((item.name, Self.hash(output)))
+        }
+        let wrong = found.filter { Self.expected[$0.0] != $0.1 }.map(\.0)
+        let literal = found.map { "        \"\($0.0)\": \"\($0.1)\"," }.joined(separator: "\n")
+        #expect(wrong.isEmpty, "Unrecorded or changed: \(wrong). Current hashes, to record:\n[\n\(literal)\n]")
+    }
+}
